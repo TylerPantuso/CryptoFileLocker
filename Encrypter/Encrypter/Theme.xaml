@@ -1,0 +1,181 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Encrypter">
+
+    <Color x:Key="Background"
+           A="255"
+           R="255"
+           G="255"
+           B="255"/>
+    <SolidColorBrush x:Key="BackgroundBrush"
+                     Color="{StaticResource Background}"/>
+
+    <Color x:Key="Transparent"
+           A="255"
+           R="255"
+           G="0"
+           B="128"/>
+    <SolidColorBrush x:Key="TransparentBrush"
+                     Color="{StaticResource Transparent}"/>
+
+    <Color x:Key="Blue"
+           A="255"
+           R="39"
+           G="36"
+           B="123"/>
+    <SolidColorBrush x:Key="BlueBrush"
+                     Color="{StaticResource Blue}"/>
+
+    <Color x:Key="DarkDarkBlue"
+           A="255"
+           R="22"
+           G="19"
+           B="92"/>
+    <SolidColorBrush x:Key="DarkDarkBlueBrush"
+                     Color="{StaticResource DarkDarkBlue}"/>
+
+    <Color x:Key="DarkBlue"
+           A="255"
+           R="35"
+           G="33"
+           B="96"/>
+    <SolidColorBrush x:Key="DarkBlueBrush"
+                     Color="{StaticResource DarkBlue}"/>
+
+    <Color x:Key="LightBlue"
+           A="255"
+           R="69"
+           G="65"
+           B="166"/>
+    <SolidColorBrush x:Key="LightBlueBrush"
+                     Color="{StaticResource LightBlue}"/>
+
+    <Color x:Key="LightLightBlue"
+           A="255"
+           R="104"
+           G="102"
+           B="158"/>
+    <SolidColorBrush x:Key="LightLightBlueBrush"
+                     Color="{StaticResource LightLightBlue}"/>
+
+    <Color x:Key="Purple"
+           A="255"
+           R="102"
+           G="22"
+           B="116"/>
+    <SolidColorBrush x:Key="PurpleBrush"
+                     Color="{StaticResource Purple}"/>
+
+    <Color x:Key="DarkDarkPurple"
+           A="255"
+           R="75"
+           G="8"
+           B="87"/>
+    <SolidColorBrush x:Key="DarkDarkPurpleBrush"
+                     Color="{StaticResource DarkDarkPurple}"/>
+
+    <Color x:Key="DarkPurple"
+           A="255"
+           R="80"
+           G="22"
+           B="90"/>
+    <SolidColorBrush x:Key="DarkPurpleBrush"
+                     Color="{StaticResource DarkPurple}"/>
+
+    <Color x:Key="LightPurple"
+           A="255"
+           R="140"
+           G="48"
+           B="156"/>
+    <SolidColorBrush x:Key="LightPurpleBrush"
+                     Color="{StaticResource LightPurple}"/>
+
+    <Color x:Key="LightLightPurple"
+           A="255"
+           R="140"
+           G="88"
+           B="149"/>
+    <SolidColorBrush x:Key="LightLightPurpleBrush"
+                     Color="{StaticResource LightLightPurple}"/>
+
+    <Color x:Key="Green"
+           A="255"
+           R="19"
+           G="113"
+           B="95"/>
+    <SolidColorBrush x:Key="GreenBrush"
+                     Color="{StaticResource Green}"/>
+
+    <Color x:Key="DarkDarkGreen"
+           A="255"
+           R="6"
+           G="85"
+           B="69"/>
+    <SolidColorBrush x:Key="DarkDarkGreenBrush"
+                     Color="{StaticResource DarkDarkGreen}"/>
+
+    <Color x:Key="DarkGreen"
+           A="255"
+           R="20"
+           G="88"
+           B="74"/>
+    <SolidColorBrush x:Key="DarkGreenBrush"
+                     Color="{StaticResource DarkGreen}"/>
+
+    <Color x:Key="LightGreen"
+           A="255"
+           R="44"
+           G="152"
+           B="130"/>
+    <SolidColorBrush x:Key="LightGreenBrush"
+                     Color="{StaticResource LightGreen}"/>
+
+    <Color x:Key="LightLightGreen"
+           A="255"
+           R="84"
+           G="145"
+           B="133"/>
+    <SolidColorBrush x:Key="LightLightGreenBrush"
+                     Color="{StaticResource LightLightGreen}"/>
+
+    <Color x:Key="Yellow"
+           A="255"
+           R="177"
+           G="142"
+           B="30"/>
+    <SolidColorBrush x:Key="YellowBrush"
+                     Color="{StaticResource Yellow}"/>
+
+    <Color x:Key="DarkDarkYellow"
+           A="255"
+           R="132"
+           G="103"
+           B="10"/>
+    <SolidColorBrush x:Key="DarkDarkYellowBrush"
+                     Color="{StaticResource DarkDarkYellow}"/>
+
+    <Color x:Key="DarkYellow"
+           A="255"
+           R="137"
+           G="112"
+           B="31"/>
+    <SolidColorBrush x:Key="DarkYellowBrush"
+                     Color="{StaticResource DarkYellow}"/>
+
+    <Color x:Key="LightYellow"
+           A="255"
+           R="237"
+           G="197"
+           B="69"/>
+    <SolidColorBrush x:Key="LightYellowBrush"
+                     Color="{StaticResource LightYellow}"/>
+
+    <Color x:Key="LightLightYellow"
+           A="255"
+           R="227"
+           G="204"
+           B="132"/>
+    <SolidColorBrush x:Key="LightLightYellowBrush"
+                     Color="{StaticResource LightLightYellow}"/>
+
+</ResourceDictionary>
