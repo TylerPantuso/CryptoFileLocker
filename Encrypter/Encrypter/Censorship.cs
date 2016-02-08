@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Encrypter
 {
-    public class DataSecurity
+    public class Censorship
     {
         public Password Sha256Encrypt(SecureString securePassword, Guid salt)
         {
@@ -55,7 +55,7 @@ namespace Encrypter
 
         public static bool IsValidPassword(User user, SecureString entry)
         {
-            DataSecurity security = new DataSecurity();
+            Censorship security = new Censorship();
             Password encryptedEntry = security.Sha256Encrypt(entry, user.Password.Salt);
 
             return user.Password.Hash.SequenceEqual(encryptedEntry.Hash);

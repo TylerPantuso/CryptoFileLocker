@@ -10,5 +10,6 @@ namespace Encrypter
     {
         public string Username;
         public Password Password;
+        public List<Deposit> Files;
     }
 }

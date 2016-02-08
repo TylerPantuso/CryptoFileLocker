@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Encrypter
 {
-    public class DataSource
+    public class Source
     {
         public static SQLiteConnection Connection;
 
         public static void Connect()
         {
-            bool existsBeforeConnection = File.Exists("ApplicationDatabase.db");
+            bool existsBeforeConnection = File.Exists("Ledger.db");
 
             SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder();
-            builder.DataSource = "ApplicationDatabase.db";
+            builder.DataSource = "Ledger.db";
             builder.Version = 3;
             builder.FailIfMissing = false;
 
@@ -28,10 +28,11 @@ namespace Encrypter
             if (!existsBeforeConnection)
             {
                 CreateUsersTable();
+                CreateRecordsTable();
             }
         }
 
-        public static void Disconnect()
+        public static void Dissolve()
         {
             Connection.Close();
             SQLiteConnection.ClearAllPools();
@@ -77,7 +78,6 @@ namespace Encrypter
 
         public static bool TryGetUser(string username, out User user)
         {
-            //-----2---------3---------4---------5---------6---------7---------8---------9
             if (UsernameExists(username))
             {
                 StringBuilder commandText = new StringBuilder();
@@ -119,8 +119,26 @@ namespace Encrypter
             StringBuilder commandText = new StringBuilder();
             commandText.AppendLine("CREATE TABLE Users(");
             commandText.AppendLine("Username varchar(20) NOT NULL UNIQUE,");
-            commandText.AppendLine("Password char(44) NOT NULL UNIQUE,");
+            commandText.AppendLine("Password char(44) NOT NULL,");
             commandText.AppendLine("Salt char(24) NOT NULL UNIQUE");
+            commandText.AppendLine(");");
+
+            SQLiteCommand command = new SQLiteCommand();
+            command.Connection = Connection;
+            command.CommandText = commandText.ToString();
+            command.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+        private static void CreateRecordsTable()
+        {
+            StringBuilder commandText = new StringBuilder();
+            commandText.AppendLine("CREATE TABLE Records(");
+            commandText.AppendLine("Username varchar(20) NOT NULL,");
+            commandText.AppendLine("IsEncrypted INTEGER NOT NULL,");
+            commandText.AppendLine("Directory TEXT NOT NULL,");
+            commandText.AppendLine("Name TEXT NOT NULL,");
+            commandText.AppendLine("Extension VARCHAR(10) NOT NULL");
             commandText.AppendLine(");");
 
             SQLiteCommand command = new SQLiteCommand();

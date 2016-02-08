@@ -30,7 +30,7 @@ namespace Encrypter
         private void Login_Loaded(object sender, RoutedEventArgs e)
         {
             Keyboard.Focus(UsernameInput);
-            DataSource.Connect();
+            Source.Connect();
         }
 
         private void NewUserButton_Click(object sender, RoutedEventArgs e)
@@ -63,7 +63,7 @@ namespace Encrypter
             if ((string)LoginButton.Content == "Login")
             {
                 User user;
-                bool userExists = DataSource.TryGetUser(UsernameInput.Text, out user);
+                bool userExists = Source.TryGetUser(UsernameInput.Text, out user);
 
                 bool? isValidPassword = null;
 
@@ -71,13 +71,14 @@ namespace Encrypter
                 {
                     using (SecureString entry = PasswordInput.SecurePassword)
                     {
-                        isValidPassword = DataSecurity.IsValidPassword(user, entry);
+                        isValidPassword = Censorship.IsValidPassword(user, entry);
                     }
                 }
 
                 if (userExists & isValidPassword ?? false)
                 {
-                    MessageBox.Show("Login validated!");
+                    Home window = new Home(user);
+                    window.Show();
                 }
                 else
                 {
@@ -92,18 +93,18 @@ namespace Encrypter
 
                 using (SecureString password = PasswordInput.SecurePassword)
                 {
-                    DataSecurity security = new DataSecurity();
+                    Censorship security = new Censorship();
                     firstEntry = security.Sha256Encrypt(password, salt);
                 }
 
                 using (SecureString password = ReEnterPasswordInput.SecurePassword)
                 {
-                    DataSecurity security = new DataSecurity();
+                    Censorship security = new Censorship();
                     secondEntry = security.Sha256Encrypt(password, salt);
                 }
 
                 bool passwordsMatch = firstEntry.Hash.SequenceEqual(secondEntry.Hash);
-                bool usernameExists = DataSource.UsernameExists(UsernameInput.Text);
+                bool usernameExists = Source.UsernameExists(UsernameInput.Text);
 
                 if (passwordsMatch && !usernameExists)
                 {
@@ -111,7 +112,10 @@ namespace Encrypter
                     user.Username = UsernameInput.Text;
                     user.Password = firstEntry;
 
-                    DataSource.AddUser(user);
+                    Source.AddUser(user);
+
+                    Home window = new Home(user);
+                    window.Show();
                 }
                 else
                 {
